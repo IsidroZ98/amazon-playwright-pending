@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.playwrightdemo.testtest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.149 s -- in com.playwrightdemo.testtest
