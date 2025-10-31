@@ -1,4 +1,45 @@
 -------------------------------------------------------------------------------
 Test set: com.playwrightdemo.testtest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.149 s -- in com.playwrightdemo.testtest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 8.034 s <<< FAILURE! -- in com.playwrightdemo.testtest
+com.playwrightdemo.testtest.codegen_landingPageLinks -- Time elapsed: 5.763 s <<< ERROR!
+com.microsoft.playwright.PlaywrightException: 
+Error {
+  message='net::ERR_ABORTED; maybe frame was detached?
+  name='Error
+  stack='Error: net::ERR_ABORTED; maybe frame was detached?
+    at FrameManager.frameAbortedNavigation (/private/var/folders/hx/dh2nlrvs3cs2c1xnwf_7rfbm0000gn/T/playwright-java-5912040222225241953/package/lib/server/frames.js:206:14)
+    at FrameManager.requestFailed (/private/var/folders/hx/dh2nlrvs3cs2c1xnwf_7rfbm0000gn/T/playwright-java-5912040222225241953/package/lib/server/frames.js:257:12)
+    at CRNetworkManager._onLoadingFailed (/private/var/folders/hx/dh2nlrvs3cs2c1xnwf_7rfbm0000gn/T/playwright-java-5912040222225241953/package/lib/server/chromium/crNetworkManager.js:461:55)
+    at CRSession.emit (node:events:519:28)
+    at /private/var/folders/hx/dh2nlrvs3cs2c1xnwf_7rfbm0000gn/T/playwright-java-5912040222225241953/package/lib/server/chromium/crConnection.js:138:14
+}
+Call log:
+-   - waiting for navigation until "load"
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
+	at com.microsoft.playwright.impl.PageImpl.goBackImpl(PageImpl.java:899)
+	at com.microsoft.playwright.impl.PageImpl.goBack(PageImpl.java:891)
+	at com.microsoft.playwright.Page.goBack(Page.java:5412)
+	at com.playwrightdemo.testtest.codegen_landingPageLinks(Example.java:48)
+Caused by: com.microsoft.playwright.impl.DriverException: Error {
+  message='net::ERR_ABORTED; maybe frame was detached?
+  name='Error
+  stack='Error: net::ERR_ABORTED; maybe frame was detached?
+    at FrameManager.frameAbortedNavigation (/private/var/folders/hx/dh2nlrvs3cs2c1xnwf_7rfbm0000gn/T/playwright-java-5912040222225241953/package/lib/server/frames.js:206:14)
+    at FrameManager.requestFailed (/private/var/folders/hx/dh2nlrvs3cs2c1xnwf_7rfbm0000gn/T/playwright-java-5912040222225241953/package/lib/server/frames.js:257:12)
+    at CRNetworkManager._onLoadingFailed (/private/var/folders/hx/dh2nlrvs3cs2c1xnwf_7rfbm0000gn/T/playwright-java-5912040222225241953/package/lib/server/chromium/crNetworkManager.js:461:55)
+    at CRSession.emit (node:events:519:28)
+    at /private/var/folders/hx/dh2nlrvs3cs2c1xnwf_7rfbm0000gn/T/playwright-java-5912040222225241953/package/lib/server/chromium/crConnection.js:138:14
+}
+Call log:
+-   - waiting for navigation until "load"
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:262)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
+	... 6 more
+
