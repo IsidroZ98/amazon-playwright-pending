@@ -1,2 +1,4 @@
-/Users/izzyz/blogfolio-playwright/playwright-demo/src/test/java/com/playwrightdemo/AppTest.java
-/Users/izzyz/blogfolio-playwright/playwright-demo/src/test/java/com/playwrightdemo/Example.java
+/Users/izzyz/blogfolio-playwright/playwright-demo/src/test/java/com/playwrightdemo/TestRunner.java
+/Users/izzyz/blogfolio-playwright/playwright-demo/src/test/java/com/playwrightdemo/apitest/api_get_Test.java
+/Users/izzyz/blogfolio-playwright/playwright-demo/src/test/java/com/playwrightdemo/pagestest/pages_unit_Test.java
+/Users/izzyz/blogfolio-playwright/playwright-demo/src/test/java/com/playwrightdemo/smoketest/codegen_blogUITest.java

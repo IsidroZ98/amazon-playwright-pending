@@ -1,5 +1,6 @@
 # blogFolio-playwright
-
-- mvn -Dtest=testtest#testApp test
-- npx playwright codegen --target=java https://localhost:3000
-- 
+## E2E testing
+    - [x] landingPageLinks
+        - User should be able to visit and navigate through every link and return to homepage
+## API testing
+    - [] api testing in progress
