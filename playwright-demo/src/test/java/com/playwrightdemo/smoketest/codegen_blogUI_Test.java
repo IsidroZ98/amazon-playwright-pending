@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import com.microsoft.playwright.options.*;
 import com.playwrightdemo.TestRunner;
 
-public class codegen_blogUITest extends TestRunner{
+public class codegen_blogUI_Test extends TestRunner{
     static Playwright playwright = Playwright.create();
     static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
     static Page page = browser.newPage();

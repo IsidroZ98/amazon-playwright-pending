@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.playwrightdemo.pagestest.pages_unit_Test" time="5.047" tests="13" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.playwrightdemo.smoketest.codegen_blogUI_Test" time="4.984" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -59,17 +59,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="project_PortfolioCardTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.163"/>
-  <testcase name="project_playwrightBlogfolioCardTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.036"/>
-  <testcase name="homePage_test" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.079"/>
-  <testcase name="homePage_changeLogTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.049"/>
-  <testcase name="project_amazonSelCardTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.087"/>
-  <testcase name="project_snapinstaToolCardTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.037"/>
-  <testcase name="project_titleTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.03"/>
-  <testcase name="aboutMePage_whoamiTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.052"/>
-  <testcase name="project_rtlCardTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.059"/>
-  <testcase name="aboutMePage_titleTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.029"/>
-  <testcase name="project_planetCardTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.055"/>
-  <testcase name="aboutMePage_miscTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.025"/>
-  <testcase name="aboutMePage_journeyTest" classname="com.playwrightdemo.pagestest.pages_unit_Test" time="0.042"/>
+  <testcase name="codegen_landingPageLinks" classname="com.playwrightdemo.smoketest.codegen_blogUI_Test" time="4.487"/>
 </testsuite>
