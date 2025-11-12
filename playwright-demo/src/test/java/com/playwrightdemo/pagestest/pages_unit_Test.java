@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class pages_unit_Test extends TestRunner{
     
     static Playwright playwright = Playwright.create();
-    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
     static Page page = browser.newPage();
     static String homePage = "http://localhost:3000";
     static String aboutmePage = "http://localhost:3000/about";
