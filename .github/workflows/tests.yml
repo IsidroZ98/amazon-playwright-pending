@@ -1,16 +1,27 @@
-name: Run Tests and Generate Allure Report
+name: Deploy Allure Report to GitHub Pages
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  test:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Java
@@ -19,22 +30,20 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Cache Maven packages
-        uses: actions/cache@v4
+      - name: Build and generate Allure report
+        run: |
+          cd playwright-demo
+          mvn clean test
+          mvn allure:report
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+          path: 'playwright-demo/target/site/allure-maven-plugin'
 
-      - name: Run tests
-        run: mvn clean test
-
-      - name: Generate Allure Report
-        run: mvn allure:report
-
-      - name: Upload Allure Report Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
-          path: target/site/allure-maven-plugin
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
