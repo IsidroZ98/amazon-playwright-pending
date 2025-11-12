@@ -1,10 +1,10 @@
 # Maven Build
-/target/
+playwright-demo/target/
 
 #Allure report data
-/allure-results/
-/.allure/
-/target/site/allure-maven-plugin/
+playwright-demo/allure-results/
+playwright-demo/.allure/
+playwright-demo/target/site/allure-maven-plugin/
 
 # IDE Files
 /.vscode/
