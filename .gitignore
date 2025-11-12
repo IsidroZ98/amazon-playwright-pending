@@ -1,0 +1,14 @@
+# Maven Build
+/target/
+
+#Allure report data
+/allure-results/
+/.allure/
+/target/site/allure-maven-plugin/
+
+# IDE Files
+/.vscode/
+/*.iml/
+
+# OS Filters
+.DS_Store

@@ -1,6 +1,10 @@
 package com.playwrightdemo.apitest;
 
 import com.playwrightdemo.TestRunner;
+
+import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import com.microsoft.playwright.*;
@@ -16,6 +20,8 @@ public class api_get_Test extends TestRunner{
 
     @Test
     @DisplayName("API => GET, 404 error route ")
+    @AllureId("Test-Case-1")
+    @Description("API ")
     void getErrorRoute(){
         APIResponse response = page.request().get(homePage + "/error");
         assertEquals(404, response.status());
@@ -24,6 +30,8 @@ public class api_get_Test extends TestRunner{
     }
     @Test
     @DisplayName("API => GET, 200 home page route ")
+    @AllureId("Test-Case-2")
+    @Description("API ")
     void getHomeRoute(){
         APIResponse response = page.request().get(homePage + "/");
         assertEquals(200,response.status());
@@ -31,7 +39,9 @@ public class api_get_Test extends TestRunner{
         System.out.println("GET / => " + response.status());
     }
     @Test
-    @DisplayName("API => GET, 200 About me route ")
+    @DisplayName("API => GET, 200 About me route")
+    @AllureId("Test-Case-3")
+    @Description("API ")
     void getAboutRoute(){
         APIResponse response = page.request().get(homePage + "/about");
         assertEquals(200,response.status());
@@ -39,6 +49,9 @@ public class api_get_Test extends TestRunner{
         System.out.println("GET /about => " + response.status());
     }
     @Test
+    @DisplayName("API => GET,200 Projects route")
+    @AllureId("Test-Case-4")
+    @Description("API ")
     void getProjectsRoute(){
         APIResponse response = page.request().get(homePage + "/projects");
         assertEquals(200,response.status());
@@ -46,6 +59,9 @@ public class api_get_Test extends TestRunner{
         System.out.println("GET /projects => " + response.status());
     }
     @Test
+    @DisplayName("API => GET,200 Experience route")
+    @AllureId("Test-Case-5")
+    @Description("API ")
     void getExperienceRoute(){
         APIResponse response = page.request().get(homePage + "/experience");
         assertEquals(200,response.status());
@@ -53,6 +69,9 @@ public class api_get_Test extends TestRunner{
         System.out.println("GET /experience => " + response.status());
     }
     @Test
+    @DisplayName("API => GET, 200 Blog route")
+    @AllureId("Test-Case-6")
+    @Description("API ")
     void getBlogRoute(){
         APIResponse response = page.request().get(homePage + "/blog");
         assertEquals(200,response.status());
@@ -63,6 +82,9 @@ public class api_get_Test extends TestRunner{
      * File endpoints
      */
     @Test
+    @DisplayName("API => GET, 200 => Resume file")
+    @AllureId("Test-Case-7")
+    @Description("API ")
     void getResumeRoute(){
         APIResponse response = page.request().get(homePage + "/documents/Isidro-Zapata-Resume.pdf");
         assertEquals(200,response.status());

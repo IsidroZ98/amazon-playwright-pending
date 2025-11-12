@@ -1,6 +1,10 @@
 package com.playwrightdemo.pagestest;
 
 import com.playwrightdemo.TestRunner;
+
+import io.qameta.allure.AllureId;
+import io.qameta.allure.Description;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import com.microsoft.playwright.*;
@@ -21,12 +25,16 @@ public class pages_unit_Test extends TestRunner{
      */
     @Test
     @DisplayName("Home => Home Page should show correct title")
+    @AllureId("Test-Case-8")
+    @Description("Assert Home Page Title")
     public void homePage_test(){
         page.navigate(homePage);
         assertEquals("Izzy's Blog-Portfolio", page.title(), "Page title should match expected");
     }
     @Test
     @DisplayName("Home => Change log should be present")
+    @AllureId("Test-Case-9")
+    @Description("Assert Change Log is present on Home Page")
     public void homePage_changeLogTest(){
         page.navigate(homePage);
         assertTrue(page.content().contains("Change Log"), "Home page should have Change Log present");
@@ -36,39 +44,51 @@ public class pages_unit_Test extends TestRunner{
      */
     @Test
     @DisplayName("About Me => About me should show correct title")
+    @AllureId("Test-Case-10")
+    @Description("Assert About Me Page Title ")
     public void aboutMePage_titleTest(){
         page.navigate(aboutmePage);
         assertEquals("About me!", page.title(), "Page title should read About me");
     }
     @Test
     @DisplayName("About Me => whoami => Whoami section should appear in about me page")
+    @AllureId("Test-Case-11")
+    @Description("Assert whoami section card should be present ")
     public void aboutMePage_whoamiTest(){
         page.navigate(aboutmePage);
         assertTrue(page.content().contains("Whoami:"), "Whoami section card should be present");  
     }
     @Test
     @DisplayName("About Me => Journey => Journey section should appear in about me page")
+    @AllureId("Test-Case-12")
+    @Description("Assert Journey section card should be present ")
     public void aboutMePage_journeyTest(){
         page.navigate(aboutmePage);
         assertTrue(page.content().contains("Journey:"), "journey section card should be present");
     }
     @Test
     @DisplayName("About Me => quick,facts,misc => Misc section should appear in about me page")
+    @AllureId("Test-Case-13")
+    @Description("Assert Misc section card should be present ")
     public void aboutMePage_miscTest(){
         page.navigate(aboutmePage);
         assertTrue(page.content().contains("Quick, important facts, misc:"), "facts and misc section card should be present");
     }
     /*
-     * Project Page]
+     * Project Page
      */
     @Test
     @DisplayName("Projects => Projects page should show correct title")
+    @AllureId("Test-Case-14")
+    @Description("Assert me Projects page title should be present ")
     public void project_titleTest(){
         page.navigate(projectsPage);
         assertEquals(("Projects!"), page.title(), "Page title should read Projects!");
     }
     @Test
     @DisplayName("Projects => Project card portfolio title should appear correct")
+    @AllureId("Test-Case-15")
+    @Description("Assert portfolio card title should be present ")
     public void project_PortfolioCardTest(){
         page.navigate(projectsPage);
         Locator portfolioProjectHead = page.locator("id=portfolio-header");
@@ -78,6 +98,8 @@ public class pages_unit_Test extends TestRunner{
     }
     @Test
     @DisplayName("Projects => Project card playwright title should appear correct")
+    @AllureId("Test-Case-16")
+    @Description("Assert Playwright-blogfolio card title should be present ")
     public void project_playwrightBlogfolioCardTest(){
         page.navigate(projectsPage);
         Locator portfolioProjectHead = page.locator("id=pb-header");
@@ -87,6 +109,8 @@ public class pages_unit_Test extends TestRunner{
     }
     @Test
     @DisplayName("Projects => Project card Automation Planeterium title should appear correct")
+    @AllureId("Test-Case-17")
+    @Description("Assert Planeterium card title should be present ")
     public void project_planetCardTest(){
         page.navigate(projectsPage);
         Locator portfolioProjectHead = page.locator("id=planet-header");
@@ -96,6 +120,8 @@ public class pages_unit_Test extends TestRunner{
     }
     @Test
     @DisplayName("Projects => Project card rtl title should appear correct")
+    @AllureId("Test-Case-18")
+    @Description("Assert rtl88 card title should be present ")
     public void project_rtlCardTest(){
         page.navigate(projectsPage);
         Locator portfolioProjectHead = page.locator("id=rtl-header");
@@ -105,6 +131,8 @@ public class pages_unit_Test extends TestRunner{
     }
     @Test
     @DisplayName("Projects => Project card amazonSelenium title should appear correct")
+    @AllureId("Test-Case-19")
+    @Description("Assert Amazon-Selenium card title should be present ")
     public void project_amazonSelCardTest(){
         page.navigate(projectsPage);
         Locator portfolioProjectHead = page.locator("id=amazonSel-header");
@@ -114,6 +142,8 @@ public class pages_unit_Test extends TestRunner{
     }
     @Test
     @DisplayName("Projects => Project card SnapinstaTool title should appear correct")
+    @AllureId("Test-Case-20")
+    @Description("Assert Instagram snapinsta card title should be present ")
     public void project_snapinstaToolCardTest(){
         page.navigate(projectsPage);
         Locator portfolioProjectHead = page.locator("id=snapinstaTool-header");

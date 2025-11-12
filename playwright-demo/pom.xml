@@ -26,8 +26,22 @@
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
-        <version>6.0.0</version>
+        <!--<version>6.0.0</version> -->
+        <version>5.10.1</version>
         <scope>test</scope>
+    </dependency>
+      <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5 -->
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-junit5</artifactId>
+        <version>2.30.0</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/io.github.uchagani/allure-playwright-java -->
+    <dependency>
+        <groupId>io.github.uchagani</groupId>
+        <artifactId>allure-playwright-java</artifactId>
+        <version>1.1.0</version>
     </dependency>
   </dependencies>
 
@@ -45,6 +59,43 @@
           </includes>
         </configuration>
       </plugin>
+      <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.14</version>
+        <executions>
+
+    <!-- Start Jacoco before tests -->
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+
+        <!-- Generate HTML report after tests -->
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+
+      </executions>
+    </plugin>
+    <plugin>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-maven</artifactId>
+      <version>2.12.0</version>
+      <configuration>
+      <!-- Point Allure to the actual results folder -->
+      <resultsDirectory>/Users/izzyz/blogfolio-playwright/playwright-demo/allure-results</resultsDirectory>
+      <reportDirectory>/Users/izzyz/blogfolio-playwright/playwright-demo/target/site/allure-maven-plugin</reportDirectory>
+      </configuration>
+  </plugin>
+
     </plugins>
   </build>
 </project>
