@@ -1,6 +1,8 @@
 package com.playwrightdemo.smoketest;
 import com.microsoft.playwright.*;
 
+import java.util.Map;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import com.microsoft.playwright.options.*;
@@ -11,15 +13,20 @@ import io.qameta.allure.Description;
 
 public class codegen_blogUI_Test extends TestRunner{
     static Playwright playwright = Playwright.create();
-    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
-    static Page page = browser.newPage();
+    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+    //static Page page = browser.newPage();
+    static BrowserContext browserContext = browser.newContext(new Browser.NewContextOptions()
+        .setUserAgent("playwright-java-test")
+        .setExtraHTTPHeaders(Map.of("ngrok-skip-browser-warning", "true")
+        ));
+    static String homePage = "https://4693ad88a1bd.ngrok-free.app";
     // Smoke test local and +1 ping to ngrok limiter
     @Test
     @DisplayName("Codegen generated test with fall back to home page smoke test")
     @AllureId("Test-Case-21")
     @Description("Assert all pages all present ")
     void codegen_landingPageLinks() throws InterruptedException{
-        page.navigate("http://localhost:3000");
+        page.navigate(homePage);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("About Me About Me Whoami,")).click();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("[Home]")).click();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Projects Projects Linux,")).click();
@@ -29,13 +36,13 @@ public class codegen_blogUI_Test extends TestRunner{
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("blog Blog Digital notebook of")).click();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("[Home]")).click();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("ascii image of resume Resume")).click();
-        page.navigate("http://localhost:3000");
+        page.navigate("https://4693ad88a1bd.ngrok-free.app");
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Linkedin")).click();
-        page.navigate("http://localhost:3000");
+        page.navigate("https://4693ad88a1bd.ngrok-free.app");
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Github")).click();
-        page.navigate("http://localhost:3000");
+        page.navigate("https://4693ad88a1bd.ngrok-free.app");
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Change Log")).click();
         // Visit Site from accepting link from Ngrok ping +1 rate limit
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
     }
 }

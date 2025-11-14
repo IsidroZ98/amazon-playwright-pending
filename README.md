@@ -16,3 +16,7 @@
     - jacoco test coverage report
 
 [![Allure Report](https://img.shields.io/badge/Allure-Report-3982f7?logo=allure&logoColor=white)](https://IsidroZ98.github.io/blogfolio-playwright/allure-report/)
+
+### 11/12/25
+    - [] Todo move all localhost tests to live site to test and trigger reliable tests
+    

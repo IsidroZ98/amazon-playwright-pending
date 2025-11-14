@@ -8,18 +8,26 @@ import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.AriaRole;
+import com.microsoft.playwright.Page.GetByRoleOptions;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals; 
+import java.util.Map;
 public class pages_unit_Test extends TestRunner{
     
     static Playwright playwright = Playwright.create();
     static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
-    static Page page = browser.newPage();
-    static String homePage = "http://localhost:3000";
-    static String aboutmePage = "http://localhost:3000/about";
-    static String projectsPage = "http://localhost:3000/projects";
-    static String experiencePage = "http://localhost:3000/experience";
-    static String blogPage = "http://localhost:3000/blog";
+    //static Page page = browser.newPage();
+
+    static BrowserContext browserContext = browser.newContext(new Browser.NewContextOptions()
+        .setUserAgent("playwright-java-test")
+        .setExtraHTTPHeaders(Map.of("ngrok-skip-browser-warning", "true")
+        ));
+    static String homePage = "https://4693ad88a1bd.ngrok-free.app";
+    static String aboutmePage = "https://4693ad88a1bd.ngrok-free.app/about";
+    static String projectsPage = "https://4693ad88a1bd.ngrok-free.app/projects";
+    static String experiencePage = "https://4693ad88a1bd.ngrok-free.app/experience";
+    static String blogPage = "https://4693ad88a1bd.ngrok-free.app/blog";
     /*
      * Home page
      */
@@ -29,6 +37,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert Home Page Title")
     public void homePage_test(){
         page.navigate(homePage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         assertEquals("Izzy's Blog-Portfolio", page.title(), "Page title should match expected");
     }
     @Test
@@ -37,6 +46,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert Change Log is present on Home Page")
     public void homePage_changeLogTest(){
         page.navigate(homePage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         assertTrue(page.content().contains("Change Log"), "Home page should have Change Log present");
     }
     /*
@@ -48,6 +58,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert About Me Page Title ")
     public void aboutMePage_titleTest(){
         page.navigate(aboutmePage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         assertEquals("About me!", page.title(), "Page title should read About me");
     }
     @Test
@@ -56,6 +67,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert whoami section card should be present ")
     public void aboutMePage_whoamiTest(){
         page.navigate(aboutmePage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         assertTrue(page.content().contains("Whoami:"), "Whoami section card should be present");  
     }
     @Test
@@ -64,6 +76,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert Journey section card should be present ")
     public void aboutMePage_journeyTest(){
         page.navigate(aboutmePage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         assertTrue(page.content().contains("Journey:"), "journey section card should be present");
     }
     @Test
@@ -72,6 +85,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert Misc section card should be present ")
     public void aboutMePage_miscTest(){
         page.navigate(aboutmePage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         assertTrue(page.content().contains("Quick, important facts, misc:"), "facts and misc section card should be present");
     }
     /*
@@ -83,6 +97,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert me Projects page title should be present ")
     public void project_titleTest(){
         page.navigate(projectsPage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         assertEquals(("Projects!"), page.title(), "Page title should read Projects!");
     }
     @Test
@@ -91,6 +106,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert portfolio card title should be present ")
     public void project_PortfolioCardTest(){
         page.navigate(projectsPage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         Locator portfolioProjectHead = page.locator("id=portfolio-header");
         Locator portfolioProjectParagraph = page.locator("id=portfolio-para");
         assertEquals(("Portfolio Website"), portfolioProjectHead.textContent(),"Portfolio website card should be present");
@@ -102,6 +118,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert Playwright-blogfolio card title should be present ")
     public void project_playwrightBlogfolioCardTest(){
         page.navigate(projectsPage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         Locator portfolioProjectHead = page.locator("id=pb-header");
         Locator portfolioProjectParagraph = page.locator("id=pb-para");
         assertEquals(("Playwright testing blogFolio"), portfolioProjectHead.textContent(),"Playwright testing this site card should be present");
@@ -113,6 +130,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert Planeterium card title should be present ")
     public void project_planetCardTest(){
         page.navigate(projectsPage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         Locator portfolioProjectHead = page.locator("id=planet-header");
         Locator portfolioProjectParagraph = page.locator("id=planet-para");
         assertEquals(("Automation Planeterium Testing Suite"), portfolioProjectHead.textContent(),"Selenium and TestNG project card should be present");
@@ -124,6 +142,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert rtl88 card title should be present ")
     public void project_rtlCardTest(){
         page.navigate(projectsPage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         Locator portfolioProjectHead = page.locator("id=rtl-header");
         Locator portfolioProjectParagraph = page.locator("id=rtl-para");
         assertEquals(("rtl88 arch linux drivers"),portfolioProjectHead.textContent(),"rtl88 archlinux project card should be present");
@@ -135,6 +154,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert Amazon-Selenium card title should be present ")
     public void project_amazonSelCardTest(){
         page.navigate(projectsPage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         Locator portfolioProjectHead = page.locator("id=amazonSel-header");
         Locator portfolioProjectParagraph = page.locator("id=amazonSel-para");
         assertEquals(("Amazon-Selenium"),portfolioProjectHead.textContent(),"Amazon Selenium project card should be present");
@@ -146,6 +166,7 @@ public class pages_unit_Test extends TestRunner{
     @Description("Assert Instagram snapinsta card title should be present ")
     public void project_snapinstaToolCardTest(){
         page.navigate(projectsPage);
+        //page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
         Locator portfolioProjectHead = page.locator("id=snapinstaTool-header");
         Locator portfolioProjectParagraph = page.locator("id=snapinstaTool-para");
         assertEquals(("insta-snapinsta-download-tool"),portfolioProjectHead.textContent(),"Instagram snapinsta tool project card should be present");

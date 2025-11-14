@@ -10,13 +10,19 @@ import org.junit.jupiter.api.DisplayName;
 import com.microsoft.playwright.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class api_get_Test extends TestRunner{
     static Playwright playwright = Playwright.create();
-    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
-    static Page page = browser.newPage();
+    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+    //static Page page = browser.newPage();
     static APIRequestContext apiRequest;
-    String homePage = "http://localhost:3000";
+    static BrowserContext browserContext = browser.newContext(new Browser.NewContextOptions()
+        .setUserAgent("playwright-java-test")
+        .setExtraHTTPHeaders(Map.of("ngrok-skip-browser-warning", "true")
+        ));
+    String homePage = "https://4693ad88a1bd.ngrok-free.app";
 
     @Test
     @DisplayName("API => GET, 404 error route ")
