@@ -15,7 +15,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class api_get_Test extends TestRunner{
     static Playwright playwright = Playwright.create();
-    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
     //static Page page = browser.newPage();
     static APIRequestContext apiRequest;
     static BrowserContext browserContext = browser.newContext(new Browser.NewContextOptions()

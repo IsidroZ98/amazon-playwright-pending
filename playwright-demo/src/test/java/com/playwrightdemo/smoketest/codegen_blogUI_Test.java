@@ -13,7 +13,7 @@ import io.qameta.allure.Description;
 
 public class codegen_blogUI_Test extends TestRunner{
     static Playwright playwright = Playwright.create();
-    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+    static Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
     //static Page page = browser.newPage();
     static BrowserContext browserContext = browser.newContext(new Browser.NewContextOptions()
         .setUserAgent("playwright-java-test")

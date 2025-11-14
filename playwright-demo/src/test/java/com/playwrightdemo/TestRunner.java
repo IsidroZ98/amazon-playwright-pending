@@ -32,16 +32,9 @@ public class TestRunner {
         ));
         //page = browser.newPage();
         page = browserContext.newPage();
-        if(page.locator("text=Visit Site").isVisible()){
-            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
-            page.waitForLoadState();
-        }
+        
         apiRequest = playwright.request().newContext(new NewContextOptions().setBaseURL("https://4693ad88a1bd.ngrok-free.app"));
-        if(page.locator("text=Visit Site").isVisible()){
-            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Visit Site")).click();
-            page.waitForLoadState();
-        }
-
+        
     }
     @AfterAll
     public static void tearDownAfterClass(){
@@ -49,6 +42,7 @@ public class TestRunner {
         browser.close();
         apiRequest.dispose();
         playwright.close();
+        browserContext.close();
         
     }
     
